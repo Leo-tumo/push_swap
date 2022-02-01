@@ -13,3 +13,7 @@ This project comprises an interesting case study regarding sorting algorithms an
 - **```rra```** : reverse rotate a - shift down all elements of stack A by 1. The last element becomes the first one.
 - **```rrb```** : reverse rotate b - shift down all elements of stack B by 1. The last element becomes the first one.
 - **```rrr```** : rra and rrb at the same time.
+
+
+##### ⇩`my algorithm`⇩
+<img width="510" alt="Screen Shot 2022-01-29 at 18 27 26" src="https://user-images.githubusercontent.com/73405731/151953980-a64aa6bb-d006-4d61-8789-273de5cd921f.png">
