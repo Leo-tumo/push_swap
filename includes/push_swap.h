@@ -21,8 +21,6 @@ typedef struct score
 	int		rr;
 	int		rrr;
 	int		score;
-	// int		index;
-	// int		value;
 }			t_score;
 
 struct		core
@@ -34,39 +32,41 @@ struct		core
 	int		c_a;
 	int		c_b;
 	int		*C;
+	int		*A;
+	int		*B;
 	int		c_c;
 }			s_core;
 
 
-void		is_sorted(int *A);
+void		is_sorted(void);
 void		is_repeated(int *A);
-void 		indexer(int *A, int size);
+void 		indexer(int size);
 void		markup(int *A, int size, int index, int prev);
 void		remark(int *A, int size);
 int			find_min(int *A, int size);
 int 		find_max(int *A, int size);
-void		push_to_b(int *A, int *B);
+void		push_to_b(void);
 void		swap(int *A, int n);
-void		sort_three(int *A, int *B);
-void		five_sort(int *A, int *B, int size);
+void		sort_three(int *A);
+void		five_sort(void);
 int			find_position(int *A, int num, int size);
-void		push_smallest(int *A, int *B, int size);
+void		push_smallest(int a, int b);
 void		perform(int *A, int *B);
 void		compute(int *A, int *B);
 void		keep_me(int *A, int *C, int c_a);
 void		finito(int *A, int *B);
-void		sort(int *A, int *B);
+void		sort(void);
 
-void		sb(int *B);
-void		sa(int *A);
-void		ss(int *A, int *B);
-void		pa(int *A, int *B, int c_a, int c_b);
-void		pb(int *A, int *B, int c_a, int c_b);
-void		ra(int *A, int c_a);
-void		rb(int *B, int c_b);
-void		rr(int *A, int *B, int c_a, int c_b);
-void		rra(int *A, int c_a);
-void		rrb(int *B, int c_b);
-void		rrr(int *A, int *B, int c_a, int c_b);
+void		sb(void);
+void		sa(void);
+void		ss(void);
+void		pa(void);
+void		pb(void);
+void		ra(void);
+void		rb(void);
+void		rr(void);
+void		rra(void);
+void		rrb(void);
+void		rrr(void);
 
 # endif

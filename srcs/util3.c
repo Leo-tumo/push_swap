@@ -12,10 +12,10 @@
 
 #include "../includes/push_swap.h"
 
-void	rrr(int *A, int *B, int c_a, int c_b)
+void	rrr(void)
 {
-	rra(A, c_a);
-	rrb(B, c_b);
+	rra();
+	rrb();
 	write(1, "rrr\n", 4);
 }
 

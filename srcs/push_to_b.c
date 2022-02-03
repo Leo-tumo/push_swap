@@ -6,7 +6,7 @@
 /*   By: letumany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 13:40:40 by letumany          #+#    #+#             */
-/*   Updated: 2022/02/01 13:05:43 by letumany         ###   ########.fr       */
+/*   Updated: 2022/02/03 15:51:03 by letumany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,21 +55,20 @@ int		ps_finder(int *C, int c)
 	return (0);
 }
 
-void	push_to_b(int *A, int *B)
+void	push_to_b(void)
 {
 	int i;
 	
 	i = 0;
 	while (i < s_core.c_a - 3 - s_core.c_c)
 	{
-		if (/* A[0] == s_core.max || */ ps_finder(s_core.C, A[0]) > 0)
+		if (ps_finder(s_core.C, s_core.A[0]) > 0)
 		{
-			printf("A[0] = %d\n", A[0]);
-			ra(A, s_core.c_a);
+			ra();
 			++i;
 			continue;
 		}
-		pb(A, B, s_core.c_a, s_core.c_b);
+		pb();
 		++i;
 	}
 }

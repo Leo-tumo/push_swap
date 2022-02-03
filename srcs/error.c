@@ -6,20 +6,20 @@
 /*   By: letumany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 16:19:32 by letumany          #+#    #+#             */
-/*   Updated: 2022/01/31 16:20:46 by letumany         ###   ########.fr       */
+/*   Updated: 2022/02/03 15:49:19 by letumany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void		is_sorted(int *A)
+void		is_sorted()
 {
 	int		i;
 
 	i = 0;
 	while(i + 1 < s_array.size)
 	{
-		if(A[i] < A[i + 1])
+		if(s_core.A[i] < s_core.A[i + 1])
 			++i;
 		else
 			return;

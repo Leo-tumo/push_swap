@@ -6,7 +6,7 @@
 /*   By: letumany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 14:35:52 by letumany          #+#    #+#             */
-/*   Updated: 2022/01/31 22:51:12 by letumany         ###   ########.fr       */
+/*   Updated: 2022/02/03 15:48:40 by letumany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ int 	find_max(int *A, int size)
 	return (max);
 }
 
-void 	indexer(int *A, int size)
+void 	indexer(int size)
 {
-	is_repeated(A);
-	s_array.min = find_min(A, size); 
-	s_array.max = find_max(A, size);
-	markup(A, s_array.size, s_array.max + 1, s_array.min - 1);
-	remark(A, size);
+	is_repeated(s_core.A);
+	s_array.min = find_min(s_core.A, size); 
+	s_array.max = find_max(s_core.A, size);
+	markup(s_core.A, s_array.size, s_array.max + 1, s_array.min - 1);
+	remark(s_core.A, size);
 	s_core.max = s_array.size - 1;
 	s_core.c_a = s_array.size;
 	s_core.c_b = 0;

@@ -6,7 +6,7 @@
 /*   By: letumany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 12:14:52 by letumany          #+#    #+#             */
-/*   Updated: 2022/02/03 14:30:34 by letumany         ###   ########.fr       */
+/*   Updated: 2022/02/03 15:46:38 by letumany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,10 @@ int 	main(int argc, char **argv)
 { 
     int		n;
 	int		i;
-	int		*A;
-	int		*B;
 
 	s_array.size = argc - 1;
-	A = (int *)malloc(sizeof(int) * s_array.size);
-	B = (int *)malloc(sizeof(int) * s_array.size);
+	s_core.A = (int *)malloc(sizeof(int) * s_array.size);
+	s_core.B = (int *)malloc(sizeof(int) * s_array.size);
 	s_core.C = (int *)malloc(sizeof(int) * s_array.size);
 	n = 1;
 	i = 0;
@@ -30,71 +28,57 @@ int 	main(int argc, char **argv)
 		if(argv[n][0] == '-')
 		{
 			argv[n][0] = '+';
-			A[i] = atoi(argv[n]);
-			A[i] *= -1;
+			s_core.A[i] = atoi(argv[n]);
+			s_core.A[i] *= -1;
 		}
 		else if(argv[n][0] == '0')
-			A[i] = 0;
+			s_core.A[i] = 0;
 		else
-			A[i] = atoi(argv[n]);
+			s_core.A[i] = atoi(argv[n]);
 		n++;
 		if(n < argc)
 			i++;
 	}
-	indexer(A, s_array.size);
-	is_sorted(A);
-	for(int i = 0; i < s_core.c_a; ++i)
-	sort(A, B);
-	while(i >= 0)
-	{
-		printf("\tA[%d]\t=\t%d\n", i, A[i]);
-		i--;
-	}
-	printf("s_array.size = %d\n", s_array.size);
+	indexer(s_array.size);
+	is_sorted();
+	sort();
+	
 }
 
 
-void		five_sort(int *A, int *B)
+void		five_sort()
 {
-	// for(int i = 0; i < 5; ++i)
-	// 	printf("beginning %d\n", A[i]);
-	push_smallest(A, B, 5, 0);
-	// for(int i = 0; i < 4; ++i)
-	// 	printf("2nd %d\n", A[i]);
-	push_smallest(A, B, 4, 1);
-	// for(int i = 0; i < 3; ++i)
-	// 	printf("before %d\n", A[i]);
-	sort_three(A);
-	// for(int i = 0; i < 3; ++i)
-	// 	printf("after %d\n", A[i]);
-	pa(A, B, 3, 2);
-	pa(A, B, 4, 1);
+	push_smallest(5, 0);
+	push_smallest(4, 1);
+	sort_three(s_core.A);
+	pa();
+	pa();
 }
 
 void		four_sort(int *A, int *B)
 {
-	push_smallest(A, B, 4, 0);
-	sort_three(A);
-	pa(A, B, 3, 1);
+	push_smallest(4, 0);
+	sort_three(s_core.A);
+	pa();
 }
 
 void		sort_three(int *A)
 {
 	if (A[0] < A[1] && A[0] < A[2] && A[1] > A[2])
 	{
-		sa(A);
-		ra(A, 3);
+		sa();
+		ra();
 	}
 	else if (A[0] > A[1] && A[0] < A[2])
-		sa(A);
+		sa();
 	else if(A[0] < A[1] && A[0] > A[2])
-		rra(A, 3);
+		rra();
 	else if(A[0] > A[2] && A[1] < A[2] && A[0] > A[1])
-		ra(A, 3);
+		ra();
 	else if(A[0] > A[1] && A[1] > A[2])
 	{
-		sa(A);
-		rra(A, 3);
+		sa();
+		rra();
 	}
 }
 
@@ -139,27 +123,25 @@ void		sort_three(int *A)
 // 	return (i);
 // }
 
-void	push_smallest(int *A, int *B, int a, int b)
+void	push_smallest(int a, int b)
 {
-	int		i = 1, smallest = A[0];
+	int		i = 1, smallest = s_core.A[0];
 	while (i + 1 < a)
 	{
 		if (A[i] < smallest)
-			smallest = A[i];
+			smallest = s_core.A[i];
 		++i;
 	}
 	int j = 0;
 	while(j < a)
 	{
-		if (A[j] == smallest)
+		if (s_core.A[j] == smallest)
 			break;
 		++j;
 	}
-	for(int i = 0; i < a; ++i)
-		printf("step 1 %d\n", A[i]);
-	while (A[0] > smallest)
+	while (s_core.A[0] > smallest)
 	{
-			rra(A, a);
+			rra();
 	}
-	pb(A, B, a, b);
+	pb();
 }
