@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_to_b.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: letumany <letumany@student.42.fr>          +#+  +:+       +#+        */
+/*   By: letumany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 13:40:40 by letumany          #+#    #+#             */
-/*   Updated: 2022/02/03 17:56:44 by letumany         ###   ########.fr       */
+/*   Updated: 2022/02/04 00:25:35 by letumany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ void	keep_me(void)
 	int i;
 	int index;
 
-	s_core.c_c = 1;
+	s_core.c_c = 2;
 	s_core.C[0] = s_core.max;
+	s_core.C[1] = 0;
 	i = 0;
 	index = 1;
 	while (s_core.A[i] > 0)
@@ -59,15 +60,16 @@ void	push_to_b(void)
 	int i;
 	
 	i = 0;
-	while (i < s_core.c_a - 3 - s_core.c_c)
+	while (i < s_core.c_a)
 	{
 		if (ps_finder(s_core.A[0]) > 0)
 		{
-			ra();
+			ra(1);
 			++i;
 			continue;
 		}
 		pb();
-		++i;
+		if(s_core.B[0] > s_core.mid)
+			rb(1);
 	}
 }

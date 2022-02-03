@@ -63,11 +63,11 @@ void		sa(void);
 void		ss(void);
 void		pa(void);
 void		pb(void);
-void		ra(void);
-void		rb(void);
+void		ra(int bool);
+void		rb(int bool);
 void		rr(void);
-void		rra(void);
-void		rrb(void);
+void		rra(int bool);
+void		rrb(int bool);
 void		rrr(void);
 
 # endif

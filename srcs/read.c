@@ -65,18 +65,18 @@ void		sort_three(void)
 	if (s_core.A[0] < s_core.A[1] && s_core.A[0] < s_core.A[2] && s_core.A[1] > s_core.A[2]) // 1 3 2
 	{
 		sa();
-		ra();
+		ra(1);
 	}
 	else if (s_core.A[0] > s_core.A[1] && s_core.A[0] < s_core.A[2]) // 2 1 3
 		sa();
 	else if(s_core.A[0] < s_core.A[1] && s_core.A[0] > s_core.A[2]) // 2 3 1
-		rra();
+		rra(1);
 	else if(s_core.A[0] > s_core.A[2] && s_core.A[1] < s_core.A[2] && s_core.A[0] > s_core.A[1]) // 3 1 2
-		ra();
+		ra(1);
 	else if(s_core.A[0] > s_core.A[1] && s_core.A[1] > s_core.A[2]) // 3 2 1
 	{
 		sa();
-		rra();
+		rra(1);
 	}
 }
 
@@ -99,9 +99,9 @@ void	push_smallest(int a)
 	while (s_core.A[0] != smallest)
 	{
 		if (j > s_core.c_a / 2)
-			rra();
+			rra(1);
 		else 
-			ra();
+			ra(1);
 	}
 	pb();
 }

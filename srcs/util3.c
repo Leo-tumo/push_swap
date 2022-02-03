@@ -14,8 +14,8 @@
 
 void	rrr(void)
 {
-	rra();
-	rrb();
+	rra(0);
+	rrb(0);
 	write(1, "rrr\n", 4);
 }
 

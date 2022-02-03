@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: letumany <letumany@student.42.fr>          +#+  +:+       +#+        */
+/*   By: letumany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 16:23:12 by letumany          #+#    #+#             */
-/*   Updated: 2022/02/03 19:21:32 by letumany         ###   ########.fr       */
+/*   Updated: 2022/02/04 00:01:32 by letumany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	final_sort(void)
 	while (s_core.A[0] != 0)
 	{
 		if (i > s_core.c_a / 2)
-			rra();
+			rra(1);
 		else
-			ra();
+			ra(1);
 	}
 }
 
@@ -59,7 +59,6 @@ void	sort(void)
 	{
 		keep_me();
 		push_to_b();
-		
 		while (s_core.c_b)
 		{
 			compute();
