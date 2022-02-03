@@ -39,22 +39,23 @@ struct		core
 
 
 void		is_sorted(void);
-void		is_repeated(int *A);
+void		is_repeated(void);
 void 		indexer(int size);
-void		markup(int *A, int size, int index, int prev);
-void		remark(int *A, int size);
-int			find_min(int *A, int size);
-int 		find_max(int *A, int size);
+void		markup(int size, int index, int prev);
+void		remark(int size);
+int			find_min(int size);
+int 		find_max(int size);
 void		push_to_b(void);
-void		swap(int *A, int n);
-void		sort_three(int *A);
+void		swap(int n);
+void		sort_three(void);
+void		four_sort(void);
 void		five_sort(void);
-int			find_position(int *A, int num, int size);
-void		push_smallest(int a, int b);
-void		perform(int *A, int *B);
-void		compute(int *A, int *B);
-void		keep_me(int *A, int *C, int c_a);
-void		finito(int *A, int *B);
+int			find_position(int num, int size);
+void		push_smallest(int a);
+void		perform(void);
+void		compute(void);
+void		keep_me(void);
+void		finito(void);
 void		sort(void);
 
 void		sb(void);

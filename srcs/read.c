@@ -1,19 +1,17 @@
-/* ************************************************************************** */
-/*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   read.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: letumany <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: letumany <letumany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/31 12:14:52 by letumany          #+#    #+#             */
-/*   Updated: 2022/02/03 15:46:38 by letumany         ###   ########.fr       */
+/*   Created: 2022/02/03 15:46:38 by letumany          #+#    #+#             */
+/*   Updated: 2022/02/03 17:33:57 by letumany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 int 	main(int argc, char **argv)
-{ 
+{
     int		n;
 	int		i;
 
@@ -42,93 +40,52 @@ int 	main(int argc, char **argv)
 	indexer(s_array.size);
 	is_sorted();
 	sort();
-	
+
 }
 
 
 void		five_sort()
 {
-	push_smallest(5, 0);
-	push_smallest(4, 1);
-	sort_three(s_core.A);
+	push_smallest(5);
+	push_smallest(4);
+	sort_three();
 	pa();
 	pa();
 }
 
-void		four_sort(int *A, int *B)
+void		four_sort(void)
 {
-	push_smallest(4, 0);
-	sort_three(s_core.A);
+	push_smallest(4);
+	sort_three();
 	pa();
 }
 
-void		sort_three(int *A)
+void		sort_three(void)
 {
-	if (A[0] < A[1] && A[0] < A[2] && A[1] > A[2])
+	if (s_core.A[0] < s_core.A[1] && s_core.A[0] < s_core.A[2] && s_core.A[1] > s_core.A[2]) // 1 3 2
 	{
 		sa();
 		ra();
 	}
-	else if (A[0] > A[1] && A[0] < A[2])
+	else if (s_core.A[0] > s_core.A[1] && s_core.A[0] < s_core.A[2]) // 2 1 3
 		sa();
-	else if(A[0] < A[1] && A[0] > A[2])
+	else if(s_core.A[0] < s_core.A[1] && s_core.A[0] > s_core.A[2]) // 2 3 1
 		rra();
-	else if(A[0] > A[2] && A[1] < A[2] && A[0] > A[1])
+	else if(s_core.A[0] > s_core.A[2] && s_core.A[1] < s_core.A[2] && s_core.A[0] > s_core.A[1]) // 3 1 2
 		ra();
-	else if(A[0] > A[1] && A[1] > A[2])
+	else if(s_core.A[0] > s_core.A[1] && s_core.A[1] > s_core.A[2]) // 3 2 1
 	{
 		sa();
 		rra();
 	}
 }
 
-// void	push_smallest(int *A, int *B, int a, int b)
-// {
-// 	int		i;
-// 	int		tmp;
-
-// 	i = 1;
-// 	tmp = A[0];
-// 	while(i < a)
-// 	{
-// 		if(A[i] < tmp)
-// 			tmp = A[i];
-// 		++i;
-// 	}
-// 	i = find_position(A, tmp, a);
-// 	if(i <= a / 2)
-// 	{
-// 		while(A[0] != tmp)
-// 			ra(A, a);
-// 	}
-// 	else
-// 	{
-// 		while(A[0] != tmp)
-// 			rra(A, a);
-// 	}
-// 	pb(A, B, a, b);
-// }
-
-// int			find_position(int *A, int num, int size)
-// {
-// 	int		i;
-
-// 	i = 0;
-// 	while(i < size)
-// 	{
-// 		if(num == A[i])
-// 			break;
-// 		++i;
-// 	}
-// 	return (i);
-// }
-
-void	push_smallest(int a, int b)
+void	push_smallest(int a)
 {
 	int		i = 1, smallest = s_core.A[0];
-	while (i + 1 < a)
+	while (i < a)
 	{
-		if (A[i] < smallest)
+		if (s_core.A[i] < smallest)
 			smallest = s_core.A[i];
 		++i;
 	}
@@ -139,9 +96,12 @@ void	push_smallest(int a, int b)
 			break;
 		++j;
 	}
-	while (s_core.A[0] > smallest)
+	while (s_core.A[0] != smallest)
 	{
+		if (j > s_core.c_a / 2)
 			rra();
+		else 
+			ra();
 	}
 	pb();
 }

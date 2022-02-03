@@ -3,28 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   compute.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: letumany <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: letumany <letumany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:37:07 by letumany          #+#    #+#             */
-/*   Updated: 2022/01/31 16:30:43 by letumany         ###   ########.fr       */
+/*   Updated: 2022/02/03 17:49:29 by letumany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void		count_ra(int *A, int b)
+void		count_ra(int b)
 {
 	int		i;
 
 	i = 0;
-	if (A[0] > b && A[s_core.c_a - 1] < b)
+	if (s_core.A[0] > b && s_core.A[s_core.c_a - 1] < b)
 	{
 		s_core.current.ra = 0;
 		return;
 	}
 	while (i < s_core.c_a)
 	{
-		if (b > A[i] && b < A[i + 1])
+		if (b > s_core.A[i] && b < s_core.A[i + 1])
 		{
 			++i;
 			if (i > s_core.c_a / 2)
@@ -81,7 +81,7 @@ void	score_init(void)
 	
 }
 
-void	compute(int *A, int *B)
+void	compute(void)
 {
 	int		i;
 	
@@ -93,7 +93,7 @@ void	compute(int *A, int *B)
 			s_core.current.rrb = (s_core.c_b - i);
 		else
 			s_core.current.rb = i;
-		count_ra(A, B[i]);
+		count_ra(s_core.B[i]);
 		merge_rr();
 		s_core.current.score = s_core.current.ra + s_core.current.rb 
 			+ s_core.current.rra + s_core.current.rrb 

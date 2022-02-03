@@ -25,7 +25,7 @@ int		pivot(int *A, int size)
 	int		pivot;
 
 	i = 0;
-	pivot = find_min(A, size);
+	pivot = find_min(size);
 	while(i < size)
 	{
 		if(A[i] > pivot)

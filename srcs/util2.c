@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   util2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: letumany <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: letumany <letumany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 18:34:18 by letumany          #+#    #+#             */
-/*   Updated: 2022/02/03 15:27:16 by letumany         ###   ########.fr       */
+/*   Updated: 2022/02/03 18:14:50 by letumany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	rra(void)
 	while(i > 0)
 	{
 		s_core.A[i] = s_core.A[i - 1];
-		++i;
+		--i;
 	}
 	s_core.A[0] = tmp;
 	write(1, "rra\n", 4);

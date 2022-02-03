@@ -3,28 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   perform.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: letumany <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: letumany <letumany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 16:06:51 by letumany          #+#    #+#             */
-/*   Updated: 2022/01/31 22:51:22 by letumany         ###   ########.fr       */
+/*   Updated: 2022/02/03 17:55:04 by letumany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	perform(int *A, int *B)
+void	perform(void)
 {
 	while(s_core.best.ra)
-		ra(A, s_core.c_a);
+		ra();
 	while(s_core.best.rb)
-		rb(A, s_core.c_b);	
+		rb();	
 	while(s_core.best.rra)
-		rra(A, s_core.c_a);
+		rra();
 	while(s_core.best.rrb)
-		rrb(A, s_core.c_b);
+		rrb();
 	while(s_core.best.rr)
-		rr(A, B, s_core.c_a, s_core.c_b);
+		rr();
 	while(s_core.best.rrr)
-		rrr(A, B, s_core.c_a, s_core.c_b);
-	pa(A, B, s_core.c_a, s_core.c_b);
+		rrr();
+	pa();
 }

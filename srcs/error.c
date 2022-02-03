@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: letumany <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: letumany <letumany@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 16:19:32 by letumany          #+#    #+#             */
-/*   Updated: 2022/02/03 15:49:19 by letumany         ###   ########.fr       */
+/*   Updated: 2022/02/03 17:50:03 by letumany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void		is_sorted()
+void		is_sorted(void)
 {
 	int		i;
 
@@ -28,7 +28,7 @@ void		is_sorted()
 	exit (0);
 }
 
-void		is_repeated(int *A)
+void		is_repeated(void)
 {
 	int		i;
 	int		j;
@@ -41,7 +41,7 @@ void		is_repeated(int *A)
 		j = i + 1;
 		while(j < s_array.size)
 		{
-			if(A[i] == A[j])
+			if(s_core.A[i] == s_core.A[j])
 			{
 				printf("Error\nRepeating numbers\n");
 				exit(0);
