@@ -1,16 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: letumany <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/04 16:48:09 by letumany          #+#    #+#             */
+/*   Updated: 2022/02/04 17:00:23 by letumany         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+# define PUSH_SWAP_H
+# include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-
-struct 		array
+struct		s_array
 {
 	int		size;
 	int		max;
-	int     min;
-} 			s_array;
+	int		min;
+}	s_array;
 
 typedef struct score
 {
@@ -23,7 +34,7 @@ typedef struct score
 	int		rr;
 }			t_score;
 
-struct		core
+struct		s_core
 {
 	t_score	current;
 	t_score	best;
@@ -32,12 +43,12 @@ struct		core
 	int		c_a;
 	int		c_b;
 	int		c_c;
-	int		*C;
-	int		*A;
-	int		*B;
+	int		*a;
+	int		*b;
+	int		*c;
 }			s_core;
 
-
+void		markup_norme(int *i, int *index, int *tmp);
 void		markup(int size, int index, int prev);
 void		arg_checker(int argc, char **argv);
 char		**ft_split(char const *s, char c);
@@ -54,11 +65,12 @@ void		score_init_max(void);
 void		push_smallest(int a);
 int			ft_error(char *str);
 int			find_min(int size);
-int 		find_max(int size);
+int			find_max(int size);
 void		is_repeated(void);
-void 		indexer(int size);
+void		indexer(int size);
 void		remark(int size);
 void		compute(int max);
+void		score_init(void);
 int			is_digit(int c);
 void		is_sorted(void);
 void		push_to_b(void);
@@ -79,4 +91,4 @@ void		pa(void);
 void		pb(void);
 void		rr(void);
 
-# endif
+#endif

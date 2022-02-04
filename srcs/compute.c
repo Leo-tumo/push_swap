@@ -6,32 +6,32 @@
 /*   By: letumany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:37:07 by letumany          #+#    #+#             */
-/*   Updated: 2022/02/04 16:33:23 by letumany         ###   ########.fr       */
+/*   Updated: 2022/02/04 16:55:14 by letumany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void		count_ra(int b)
+void	count_ra(int b)
 {
 	int		i;
 
 	i = 0;
-	if (s_core.A[0] > b && s_core.A[s_core.c_a - 1] < b)
+	if (s_core.a[0] > b && s_core.a[s_core.c_a - 1] < b)
 	{
 		s_core.current.ra = 0;
-		return;
+		return ;
 	}
 	while (i < s_core.c_a)
 	{
-		if (b > s_core.A[i] && b < s_core.A[i + 1])
+		if (b > s_core.a[i] && b < s_core.a[i + 1])
 		{
 			++i;
 			if (i > s_core.c_a / 2)
 				s_core.current.rra = s_core.c_a - i;
 			else
 				s_core.current.ra = i;
-			return;
+			return ;
 		}
 		++i;
 	}
@@ -75,39 +75,28 @@ void	score_init_max(void)
 	s_core.best.score = 10000000;
 }
 
-void	score_init(void)
-{
-	s_core.current.ra = 0;
-	s_core.current.rb = 0;
-	s_core.current.rra = 0;
-	s_core.current.rrb = 0;
-	s_core.current.rr = 0;
-	s_core.current.rrr = 0;
-	s_core.current.score = 0;
-}
-
 void	compute(int max)
 {
 	int		i;
-	
+
 	i = 0;
 	while (i < s_core.c_b)
 	{
-		if(s_core.B[i] > max)
+		if (s_core.b[i] > max)
 		{
 			i++;
-			continue;
+			continue ;
 		}
 		score_init();
-		if(i > s_core.c_b / 2)
+		if (i > s_core.c_b / 2)
 			s_core.current.rrb = (s_core.c_b - i);
 		else
 			s_core.current.rb = i;
-		count_ra(s_core.B[i]);
+		count_ra(s_core.b[i]);
 		merge_rr();
-		s_core.current.score = s_core.current.ra + s_core.current.rb 
-			+ s_core.current.rra + s_core.current.rrb 
-				+ s_core.current.rr + s_core.current.rrr;
+		s_core.current.score = s_core.current.ra + s_core.current.rb
+			+ s_core.current.rra + s_core.current.rrb
+			+ s_core.current.rr + s_core.current.rrr;
 		if (s_core.current.score < s_core.best.score)
 			copy_to_best();
 		++i;

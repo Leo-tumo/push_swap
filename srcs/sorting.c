@@ -6,7 +6,7 @@
 /*   By: letumany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 16:23:12 by letumany          #+#    #+#             */
-/*   Updated: 2022/02/04 16:36:59 by letumany         ###   ########.fr       */
+/*   Updated: 2022/02/04 17:14:12 by letumany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 void	final_sort(void)
 {
 	int		i;
-	
+
 	i = 1;
-	while (s_core.A[i] != 0)
+	while (s_core.a[i] != 0)
 		++i;
-	while (s_core.A[0] != 0)
+	while (s_core.a[0] != 0)
 	{
 		if (i > s_core.c_a / 2)
 			rra(1);
@@ -28,18 +28,18 @@ void	final_sort(void)
 	}
 }
 
-void small_sort(void)
+void	small_sort(void)
 {
-	if(s_core.c_a == 2)
+	if (s_core.c_a == 2)
 		sa();
 	six_sort();
 }
 
 void	finito(void)
 {
-	free(s_core.A);
-	free(s_core.B);
-	free(s_core.C);
+	free(s_core.a);
+	free(s_core.b);
+	free(s_core.c);
 	exit(0);
 }
 
