@@ -6,7 +6,7 @@
 #    By: letumany <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/02 19:11:25 by letumany          #+#    #+#              #
-#    Updated: 2022/01/31 22:54:29 by letumany         ###   ########.fr        #
+#    Updated: 2022/02/04 15:38:40 by letumany         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,10 +75,10 @@ DIR_OBJS	=	./compiled_srcs/
 
 # FILES #
 
-SRC			=	read.c compute.c error.c\
+SRC			=	push_swap.c compute.c error.c\
 				mark.c perform.c push_to_b.c \
 				util.c util2.c util3.c\
-				sorting.c
+				sorting.c small_sort.c args.c ft_split.c
 				
 
 SRCS		=	$(SRC)

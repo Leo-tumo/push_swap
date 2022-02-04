@@ -6,7 +6,7 @@
 /*   By: letumany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:37:07 by letumany          #+#    #+#             */
-/*   Updated: 2022/02/04 00:15:58 by letumany         ###   ########.fr       */
+/*   Updated: 2022/02/04 16:33:23 by letumany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void		count_ra(int b)
 		s_core.current.ra = 0;
 		return;
 	}
-	while (i < s_core.c_a + 1)
+	while (i < s_core.c_a)
 	{
 		if (b > s_core.A[i] && b < s_core.A[i + 1])
 		{
@@ -61,6 +61,7 @@ void	copy_to_best(void)
 	s_core.best.rrb = s_core.current.rrb;
 	s_core.best.rr = s_core.current.rr;
 	s_core.best.rrr = s_core.current.rrr;
+	s_core.best.score = s_core.current.score;
 }
 
 void	score_init_max(void)
@@ -85,14 +86,18 @@ void	score_init(void)
 	s_core.current.score = 0;
 }
 
-void	compute(void)
+void	compute(int max)
 {
 	int		i;
 	
 	i = 0;
-	score_init_max();
 	while (i < s_core.c_b)
 	{
+		if(s_core.B[i] > max)
+		{
+			i++;
+			continue;
+		}
 		score_init();
 		if(i > s_core.c_b / 2)
 			s_core.current.rrb = (s_core.c_b - i);

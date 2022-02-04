@@ -14,13 +14,13 @@ struct 		array
 
 typedef struct score
 {
-	int		ra;
-	int		rra;
-	int		rb;
-	int		rrb;
-	int		rr;
-	int		rrr;
 	int		score;
+	int		rrb;
+	int		rra;
+	int		rrr;
+	int		ra;
+	int		rb;
+	int		rr;
 }			t_score;
 
 struct		core
@@ -31,43 +31,52 @@ struct		core
 	int		mid;
 	int		c_a;
 	int		c_b;
+	int		c_c;
 	int		*C;
 	int		*A;
 	int		*B;
-	int		c_c;
 }			s_core;
 
 
-void		is_sorted(void);
-void		is_repeated(void);
-void 		indexer(int size);
 void		markup(int size, int index, int prev);
-void		remark(int size);
+void		arg_checker(int argc, char **argv);
+char		**ft_split(char const *s, char c);
+int			find_position(int num, int size);
+size_t		length(char const *s, char c);
+void		stack_fill(char **av, int ac);
+void		check_num(char **av, int ac);
+void		check_num(char **av, int ac);
+size_t		ft_strlen(const char *s);
+void		stack_fill_q(char **av);
+void		check_num_q(char *av);
+void		check_num_q(char *av);
+void		score_init_max(void);
+void		push_smallest(int a);
+int			ft_error(char *str);
 int			find_min(int size);
 int 		find_max(int size);
+void		is_repeated(void);
+void 		indexer(int size);
+void		remark(int size);
+void		compute(int max);
+int			is_digit(int c);
+void		is_sorted(void);
 void		push_to_b(void);
-void		swap(int n);
-void		sort_three(void);
-void		four_sort(void);
-void		five_sort(void);
-int			find_position(int num, int size);
-void		push_smallest(int a);
+void		six_sort(void);
 void		perform(void);
-void		compute(void);
 void		keep_me(void);
+void		rra(int bool);
+void		rrb(int bool);
+void		ra(int bool);
+void		rb(int bool);
 void		finito(void);
 void		sort(void);
-
+void		rrr(void);
 void		sb(void);
 void		sa(void);
 void		ss(void);
 void		pa(void);
 void		pb(void);
-void		ra(int bool);
-void		rb(int bool);
 void		rr(void);
-void		rra(int bool);
-void		rrb(int bool);
-void		rrr(void);
 
 # endif

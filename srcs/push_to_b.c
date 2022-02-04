@@ -6,7 +6,7 @@
 /*   By: letumany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 13:40:40 by letumany          #+#    #+#             */
-/*   Updated: 2022/02/04 00:25:35 by letumany         ###   ########.fr       */
+/*   Updated: 2022/02/04 00:38:01 by letumany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@ void	keep_me(void)
 	i = 0;
 	index = 1;
 	while (s_core.A[i] > 0)
-	{
 		i++;
-	}
 	while (s_core.A[i] < s_core.max)
 	{
 		if (s_core.A[i] == index)
