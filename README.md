@@ -17,10 +17,13 @@ This project comprises an interesting case study regarding sorting algorithms an
 ## How to use?
 
 #### Rules
-`make` creates executable file\
-`make clean` deletes all object files\
-`make fclean` make clean + deletes executable file\
-`make re` make fclean + make
+
+| Rule         |                 Description                             |
+|:------------:|:-------------------------------------------------------:|
+| `make`       | Compile the program.                                    |
+| `make clean` | Remove every objects of compilation                     |
+| `make fclean`| Do `clean` rule and remove the executable program       |
+| `make re`    | Do `fclean` rule and compile the program                |
 
 #### Sorting
 
