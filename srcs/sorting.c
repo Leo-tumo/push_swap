@@ -6,68 +6,68 @@
 /*   By: letumany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 16:23:12 by letumany          #+#    #+#             */
-/*   Updated: 2022/02/04 17:14:12 by letumany         ###   ########.fr       */
+/*   Updated: 2022/02/05 23:34:40 by letumany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	final_sort(void)
+void	final_sort(t_base *base)
 {
 	int		i;
 
 	i = 1;
-	while (s_core.a[i] != 0)
+	while (base->a[i] != 0)
 		++i;
-	while (s_core.a[0] != 0)
+	while (base->a[0] != 0)
 	{
-		if (i > s_core.c_a / 2)
-			rra(1);
+		if (i > base->c_a / 2)
+			rra(1, base);
 		else
-			ra(1);
+			ra(1, base);
 	}
 }
 
-void	small_sort(void)
+void	small_sort(t_base *base)
 {
-	if (s_core.c_a == 2)
-		sa();
-	six_sort();
+	if (base->c_a == 2)
+		sa(base);
+	six_sort(base);
 }
 
-void	finito(void)
+void	finito(t_base *base)
 {
-	free(s_core.a);
-	free(s_core.b);
-	free(s_core.c);
+	free(base->a);
+	free(base->b);
+	free(base->c);
 	exit(0);
 }
 
-void	sort(void)
+void	sort(t_base *base)
 {
 	int		i;
 
 	i = 0;
-	if (s_core.c_a < 7)
-		small_sort();
+	if (base->c_a < 7)
+		small_sort(base);
 	else
 	{
-		keep_me();
-		push_to_b();
-		while (i < s_core.mid / 2)
+		keep_me(base);
+		push_to_b(base);
+		while (i < base->mid / 2)
 		{
-			score_init_max();
-			compute(s_core.mid);
-			perform();
+			score_init_max(base);
+			compute(base->mid, base);
+			perform(base);
 			++i;
 		}
-		while (s_core.c_b)
+		while (base->c_b)
 		{
-			score_init_max();
-			compute(s_core.max);
-			perform();
+			score_init_max(base);
+			compute(base->max, base);
+			perform(base);
 		}
-		final_sort();
+		final_sort(base);
 	}
-	finito();
+	finito(base);
 }

@@ -6,83 +6,83 @@
 /*   By: letumany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 18:34:18 by letumany          #+#    #+#             */
-/*   Updated: 2022/02/04 17:16:17 by letumany         ###   ########.fr       */
+/*   Updated: 2022/02/05 23:35:24 by letumany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ra(int bool)
+void	ra(int bool, t_base *base)
 {
 	int		i;
 	int		tmp;
 
-	tmp = s_core.a[0];
+	tmp = base->a[0];
 	i = 0;
-	while (i < s_core.c_a - 1)
+	while (i < base->c_a - 1)
 	{
-		s_core.a[i] = s_core.a[i + 1];
+		base->a[i] = base->a[i + 1];
 		++i;
 	}
-	s_core.a[i] = tmp;
+	base->a[i] = tmp;
 	if (bool == 1)
 		write(1, "ra\n", 3);
 }
 
-void	rb(int bool)
+void	rb(int bool, t_base *base)
 {
 	int		i;
 	int		tmp;
 
-	tmp = s_core.b[0];
+	tmp = base->b[0];
 	i = 0;
-	while (i < s_core.c_b - 1)
+	while (i < base->c_b - 1)
 	{
-		s_core.b[i] = s_core.b[i + 1];
+		base->b[i] = base->b[i + 1];
 		++i;
 	}
-	s_core.b[i] = tmp;
+	base->b[i] = tmp;
 	if (bool == 1)
 		write(1, "rb\n", 3);
 }
 
-void	rr(void)
+void	rr(t_base *base)
 {
-	ra(0);
-	rb(0);
+	ra(0, base);
+	rb(0, base);
 	write(1, "rr\n", 3);
 }
 
-void	rra(int bool)
+void	rra(int bool, t_base *base)
 {
 	int		i;
 	int		tmp;
 
-	i = s_core.c_a - 1;
-	tmp = s_core.a[i];
+	i = base->c_a - 1;
+	tmp = base->a[i];
 	while (i > 0)
 	{
-		s_core.a[i] = s_core.a[i - 1];
+		base->a[i] = base->a[i - 1];
 		--i;
 	}
-	s_core.a[0] = tmp;
+	base->a[0] = tmp;
 	if (bool == 1)
 		write(1, "rra\n", 4);
 }
 
-void	rrb(int bool)
+void	rrb(int bool, t_base *base)
 {
 	int		i;
 	int		tmp;
 
-	i = s_core.c_b - 1;
-	tmp = s_core.b[i];
+	i = base->c_b - 1;
+	tmp = base->b[i];
 	while (i > 0)
 	{
-		s_core.b[i] = s_core.b[i - 1];
+		base->b[i] = base->b[i - 1];
 		--i;
 	}
-	s_core.b[0] = tmp;
+	base->b[0] = tmp;
 	if (bool == 1)
 		write(1, "rrb\n", 4);
 }

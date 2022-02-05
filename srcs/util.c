@@ -6,76 +6,76 @@
 /*   By: letumany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 21:00:49 by letumany          #+#    #+#             */
-/*   Updated: 2022/02/04 17:15:08 by letumany         ###   ########.fr       */
+/*   Updated: 2022/02/05 23:34:03 by letumany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sa(void)
+void	sa(t_base *base)
 {
 	int		tmp;
 
-	tmp = s_core.a[0];
-	s_core.a[0] = s_core.a[1];
-	s_core.a[1] = tmp;
+	tmp = base->a[0];
+	base->a[0] = base->a[1];
+	base->a[1] = tmp;
 	write(1, "sa\n", 3);
 }
 
-void	sb(void)
+void	sb(t_base *base)
 {
 	int		tmp;
 
-	tmp = s_core.b[0];
-	s_core.b[0] = s_core.b[1];
-	s_core.b[1] = tmp;
+	tmp = base->b[0];
+	base->b[0] = base->b[1];
+	base->b[1] = tmp;
 	write(1, "sb\n", 3);
 }
 
-void	ss(void)
+void	ss(t_base *base)
 {
-	sa();
-	sb();
+	sa(base);
+	sb(base);
 }
 
-void	pa(void)
+void	pa(t_base *base)
 {
 	int	i;
 
-	i = s_core.c_a;
+	i = base->c_a;
 	while (i > 0)
 	{
-		s_core.a[i] = s_core.a[i - 1];
+		base->a[i] = base->a[i - 1];
 		--i;
 	}
-	s_core.a[0] = s_core.b[0];
-	s_core.c_b -= 1;
-	while (i < s_core.c_b)
+	base->a[0] = base->b[0];
+	base->c_b -= 1;
+	while (i < base->c_b)
 	{
-		s_core.b[i] = s_core.b[i + 1];
+		base->b[i] = base->b[i + 1];
 		i++;
 	}
-	s_core.c_a += 1;
+	base->c_a += 1;
 	write(1, "pa\n", 3);
 }
 
-void	pb(void)
+void	pb(t_base *base)
 {
 	int	i;
 
-	i = s_core.c_b;
+	i = base->c_b;
 	while (i > 0)
 	{
-		s_core.b[i] = s_core.b[i - 1];
+		base->b[i] = base->b[i - 1];
 		i--;
 	}
-	s_core.b[0] = s_core.a[0];
-	s_core.c_a -= 1;
-	while (i < s_core.c_a)
+	base->b[0] = base->a[0];
+	base->c_a -= 1;
+	while (i < base->c_a)
 	{
-		s_core.a[i] = s_core.a[i + 1];
+		base->a[i] = base->a[i + 1];
 		++i;
 	}
-	s_core.c_b += 1;
+	base->c_b += 1;
 	write(1, "pb\n", 3);
 }

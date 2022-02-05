@@ -6,48 +6,48 @@
 /*   By: letumany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 16:06:51 by letumany          #+#    #+#             */
-/*   Updated: 2022/02/04 17:02:54 by letumany         ###   ########.fr       */
+/*   Updated: 2022/02/05 23:39:28 by letumany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	perform_norme(void)
+void	perform_norme(t_base *base)
 {
-	while (s_core.best.ra)
+	while (base->best.ra)
 	{
-		ra(1);
-		--s_core.best.ra;
+		ra(1, base);
+		--base->best.ra;
 	}
-	while (s_core.best.rb)
+	while (base->best.rb)
 	{
-		rb(1);
-		--s_core.best.rb;
+		rb(1, base);
+		--base->best.rb;
 	}
-	while (s_core.best.rra)
+	while (base->best.rra)
 	{
-		rra(1);
-		--s_core.best.rra;
+		rra(1, base);
+		--base->best.rra;
 	}
-	while (s_core.best.rrb)
+	while (base->best.rrb)
 	{
-		rrb(1);
-		--s_core.best.rrb;
+		rrb(1, base);
+		--base->best.rrb;
 	}
 }
 
-void	perform(void)
+void	perform(t_base *base)
 {
-	perform_norme();
-	while (s_core.best.rr)
+	perform_norme(base);
+	while (base->best.rr)
 	{
-		rr();
-		--s_core.best.rr;
+		rr(base);
+		--base->best.rr;
 	}
-	while (s_core.best.rrr)
+	while (base->best.rrr)
 	{
-		rrr();
-		--s_core.best.rrr;
+		rrr(base);
+		--base->best.rrr;
 	}
-	pa();
+	pa(base);
 }

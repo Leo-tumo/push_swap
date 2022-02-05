@@ -6,16 +6,16 @@
 /*   By: letumany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:25:48 by letumany          #+#    #+#             */
-/*   Updated: 2022/02/04 17:16:33 by letumany         ###   ########.fr       */
+/*   Updated: 2022/02/05 23:36:10 by letumany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	rrr(void)
+void	rrr(t_base *base)
 {
-	rra(0);
-	rrb(0);
+	rra(0, base);
+	rrb(0, base);
 	write(1, "rrr\n", 4);
 }
 
@@ -38,29 +38,29 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-void	score_init(void)
+void	score_init(t_base *base)
 {
-	s_core.current.ra = 0;
-	s_core.current.rb = 0;
-	s_core.current.rra = 0;
-	s_core.current.rrb = 0;
-	s_core.current.rr = 0;
-	s_core.current.rrr = 0;
-	s_core.current.score = 0;
+	base->current.ra = 0;
+	base->current.rb = 0;
+	base->current.rra = 0;
+	base->current.rrb = 0;
+	base->current.rr = 0;
+	base->current.rrr = 0;
+	base->current.score = 0;
 }
 
-void	markup_norme(int *i, int *index, int *tmp)
+void	markup_norme(int *i, int *index, int *tmp, t_base *base)
 {
 	while (*i >= 0)
 	{
 		if (*tmp == 0)
 		{
-			if (s_core.a[*i] == 0)
-				s_core.a[*i] = *index;
+			if (base->a[*i] == 0)
+				base->a[*i] = *index;
 		}
-		if (s_core.a[*i] == *tmp)
+		if (base->a[*i] == *tmp)
 		{
-			s_core.a[*i] = *index;
+			base->a[*i] = *index;
 			break ;
 		}
 		--(*i);

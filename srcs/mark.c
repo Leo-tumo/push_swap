@@ -6,84 +6,84 @@
 /*   By: letumany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 14:35:52 by letumany          #+#    #+#             */
-/*   Updated: 2022/02/04 17:00:34 by letumany         ###   ########.fr       */
+/*   Updated: 2022/02/05 23:36:56 by letumany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	find_min(int size)
+int	find_min(int size, t_base *base)
 {
 	int		i;
 	int		min;
 
 	i = 0;
-	min = s_core.a[i];
+	min = base->a[i];
 	while (i < size)
 	{
-		if (s_core.a[i] < min)
-			min = s_core.a[i];
+		if (base->a[i] < min)
+			min = base->a[i];
 		i++;
 	}
 	return (min);
 }
 
-int	find_max(int size)
+int	find_max(int size, t_base *base)
 {
 	int		i;
 	int		max;
 
 	i = 0;
-	max = s_core.a[i];
+	max = base->a[i];
 	while (i < size)
 	{
-		if (s_core.a[i] > max)
-			max = s_core.a[i];
+		if (base->a[i] > max)
+			max = base->a[i];
 		i++;
 	}
 	return (max);
 }
 
-void	indexer(int size)
+void	indexer(int size, t_base *base)
 {
-	is_repeated();
-	s_array.min = find_min(size);
-	s_array.max = find_max(size);
-	markup(s_array.size, s_array.max + 1, s_array.min - 1);
-	remark(size);
-	s_core.max = s_array.size - 1;
-	s_core.c_a = s_array.size;
-	s_core.c_b = 0;
-	s_core.mid = (s_array.size + 1) / 2;
+	is_repeated(base);
+	base->start.min = find_min(size, base);
+	base->start.max = find_max(size, base);
+	markup(base->start.size, base->start.max + 1, base->start.min - 1, base);
+	remark(size, base);
+	base->max = base->start.size - 1;
+	base->c_a = base->start.size;
+	base->c_b = 0;
+	base->mid = (base->start.size + 1) / 2;
 }
 
-void	markup(int size, int index, int prev)
+void	markup(int size, int index, int prev, t_base *base)
 {
 	int		i;
 	int		tmp;
 
-	if (index > size + s_array.max)
+	if (index > size + base->start.max)
 		return ;
-	tmp = s_array.max;
+	tmp = base->start.max;
 	i = 0;
 	while (i < size)
 	{
-		if (s_core.a[i] > prev && s_core.a[i] <= tmp)
-			tmp = s_core.a[i];
+		if (base->a[i] > prev && base->a[i] <= tmp)
+			tmp = base->a[i];
 		++i;
 	}
-	markup_norme(&i, &index, &tmp);
-	markup(size, ++index, tmp);
+	markup_norme(&i, &index, &tmp, base);
+	markup(size, ++index, tmp, base);
 }
 
-void	remark(int size)
+void	remark(int size, t_base *base)
 {
 	int		i;
 
 	i = 0;
 	while (i < size)
 	{
-		s_core.a[i] -= (s_array.max + 1);
+		base->a[i] -= (base->start.max + 1);
 		++i;
 	}
 	return ;

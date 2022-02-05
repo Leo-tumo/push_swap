@@ -6,29 +6,28 @@
 /*   By: letumany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 16:19:32 by letumany          #+#    #+#             */
-/*   Updated: 2022/02/04 16:57:29 by letumany         ###   ########.fr       */
+/*   Updated: 2022/02/06 00:53:00 by letumany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	is_sorted(void)
+void	is_sorted(t_base *base)
 {
 	int		i;
 
 	i = 0;
-	while (i + 1 < s_array.size)
+	while (i + 1 < base->start.size)
 	{
-		if (s_core.a[i] < s_core.a[i + 1])
+		if (base->a[i] < base->a[i + 1])
 			++i;
 		else
 			return ;
 	}
-	printf("U dumb, already listed\n");
-	exit (0);
+	finito(base);
 }
 
-void	is_repeated(void)
+void	is_repeated(t_base *base)
 {
 	int		i;
 	int		j;
@@ -36,16 +35,13 @@ void	is_repeated(void)
 
 	count = 1;
 	i = 0;
-	while (i < s_array.size)
+	while (i < base->start.size)
 	{
 		j = i + 1;
-		while (j < s_array.size)
+		while (j < base->start.size)
 		{
-			if (s_core.a[i] == s_core.a[j])
-			{
+			if (base->a[i] == base->a[j])
 				ft_error("Error\nRepeating numbers\n");
-				exit(0);
-			}
 			++j;
 		}
 		++i;
@@ -59,7 +55,7 @@ int	ft_error(char *str)
 		write(1, &(*str), 1);
 		++str;
 	}
-	exit(1);
+	exit (1);
 	return (1);
 }
 
@@ -75,11 +71,11 @@ void	check_num(char **av, int ac)
 		while (av[i][j])
 		{
 			if (is_digit(av[i][j]))
-				ft_error("wrong char");
+				ft_error("Error\nwrong char");
 			if (av[i][j] == '-')
 			{
-				if (!(av[i][j + 1] >= '0' && av[i][j + 1] <= '9'))
-					ft_error("wrong input");
+				if (!(av[i][j + 1] >= '1' && av[i][j + 1] <= '9'))
+					ft_error("Error\nwrong input\n");
 			}
 			++j;
 		}
@@ -87,12 +83,12 @@ void	check_num(char **av, int ac)
 	}
 }
 
-void	check_num_q(char *av)
+void	check_num_q(char *av, t_base *base)
 {
 	int	i;
 
 	i = 0;
-	s_array.size = (int)length(av, ' ');
+	base->start.size = (int)length(av, ' ');
 	while (av[i])
 	{
 		if (is_digit(av[i]))
