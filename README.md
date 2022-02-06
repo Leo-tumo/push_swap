@@ -14,6 +14,25 @@ This project comprises an interesting case study regarding sorting algorithms an
 - **```rrb```** : reverse rotate b - shift down all elements of stack B by 1. The last element becomes the first one.
 - **```rrr```** : rra and rrb at the same time.
 
+## How to use?
+
+#### Rules
+
+| Rule         |                 Description                             |
+|:------------:|:-------------------------------------------------------:|
+| `make`       | Compile the program.                                    |
+| `make clean` | Remove every objects of compilation                     |
+| `make fclean`| Do `clean` rule and remove the executable program       |
+| `make re`    | Do `fclean` rule and compile the program                |
+
+#### Sorting
+
+./push_swap 3 5 2 1 6\
+./push_swap "3 5 2 1 6"
+ 
+#### Tester
+ `for deep testing`     bash test.sh\
+`for visual tester`   python3 pyviz.py \`ruby -e "puts (-200..200).to_a.shuffle.join(' ')"\`\
 
 ##### ⇩`my algorithm`⇩
 <img width="510" alt="Screen Shot 2022-01-29 at 18 27 26" src="https://user-images.githubusercontent.com/73405731/151953980-a64aa6bb-d006-4d61-8789-273de5cd921f.png">
