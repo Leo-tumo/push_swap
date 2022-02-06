@@ -6,7 +6,7 @@
 /*   By: letumany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 16:48:09 by letumany          #+#    #+#             */
-/*   Updated: 2022/02/06 00:57:00 by letumany         ###   ########.fr       */
+/*   Updated: 2022/02/06 10:34:26 by letumany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void		markup_norme(int *i, int *index, int *tmp, t_base *base);
 void		markup(int size, int index, int prev, t_base *base);
 void		arg_checker(int argc, char **argv, t_base *base);
 void		stack_fill(char **av, int ac, t_base *base);
+int			ft_atoi(const char *str, t_base *base);
 void		stack_fill_q(char **av, t_base *base);
 void		check_num_q(char *av, t_base *base);
 void		push_smallest(int a, t_base *base);
@@ -89,6 +90,5 @@ void		pa(t_base *base);
 void		pb(t_base *base);
 void		rr(t_base *base);
 int			is_digit(int c);
-int			ft_atoi(const char *str);
 
 #endif

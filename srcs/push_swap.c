@@ -6,7 +6,7 @@
 /*   By: letumany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:54:16 by letumany          #+#    #+#             */
-/*   Updated: 2022/02/05 23:50:34 by letumany         ###   ########.fr       */
+/*   Updated: 2022/02/06 10:48:07 by letumany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 	else
 		finito(&stack);
 	if (!stack.a || !stack.b || !stack.c)
-		ft_error("memory problems");
+		ft_error("Error\n");
 	indexer(stack.start.size, &stack);
 	is_sorted(&stack);
 	sort(&stack);

@@ -6,7 +6,7 @@
 /*   By: letumany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 15:14:03 by letumany          #+#    #+#             */
-/*   Updated: 2022/02/06 00:57:32 by letumany         ###   ########.fr       */
+/*   Updated: 2022/02/06 10:46:35 by letumany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ void	stack_fill(char **av, int ac, t_base *base)
 		if (av[n][0] == '-')
 		{
 			av[n][0] = '+';
-			base->a[i] = ft_atoi(av[n]);
+			base->a[i] = ft_atoi(av[n], base);
 			base->a[i] *= -1;
 		}
 		else if (av[n][0] == '0')
 			base->a[i] = 0;
 		else
-			base->a[i] = ft_atoi(av[n]);
+			base->a[i] = ft_atoi(av[n], base);
 		n++;
 		if (n < ac)
 			i++;
@@ -49,13 +49,13 @@ void	stack_fill_q(char **av, t_base *base)
 		if (av[n][0] == '-')
 		{
 			av[n][0] = '+';
-			base->a[i] = ft_atoi(av[n]);
+			base->a[i] = ft_atoi(av[n], base);
 			base->a[i] *= -1;
 		}
 		else if (av[n][0] == '0')
 			base->a[i] = 0;
 		else
-			base->a[i] = ft_atoi(av[n]);
+			base->a[i] = ft_atoi(av[n], base);
 		n++;
 		if (n < base->start.size)
 			i++;
@@ -76,17 +76,27 @@ void	arg_checker(int argc, char **argv, t_base *base)
 	}	
 }
 
-int	ft_atoi(const char *str)
+void	kill_prog(char *str, t_base *base)
 {
-	int neg;
-	int i;
-	int num;
+	while (*str)
+	{
+		write(1, &(*str), 1);
+		++str;
+	}
+	finito(base);
+}
+
+int	ft_atoi(const char *str, t_base *base)
+{
+	int	neg;
+	int	i;
+	int	num;
 
 	i = 0;
 	neg = 1;
 	num = 0;
 	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' || str[i] == '\v'
-			|| str[i] == '\f' || str[i] == '\r')
+		|| str[i] == '\f' || str[i] == '\r')
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
@@ -99,5 +109,7 @@ int	ft_atoi(const char *str)
 		num = num * 10 + (str[i] - 48);
 		i++;
 	}
+	if (num < 0)
+		kill_prog("Error\n", base);
 	return (num * neg);
 }

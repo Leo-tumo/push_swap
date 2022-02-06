@@ -6,7 +6,7 @@
 /*   By: letumany <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 16:19:32 by letumany          #+#    #+#             */
-/*   Updated: 2022/02/06 00:53:00 by letumany         ###   ########.fr       */
+/*   Updated: 2022/02/06 10:47:53 by letumany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	is_repeated(t_base *base)
 		while (j < base->start.size)
 		{
 			if (base->a[i] == base->a[j])
-				ft_error("Error\nRepeating numbers\n");
+				ft_error("Error\n");
 			++j;
 		}
 		++i;
@@ -71,11 +71,11 @@ void	check_num(char **av, int ac)
 		while (av[i][j])
 		{
 			if (is_digit(av[i][j]))
-				ft_error("Error\nwrong char");
+				ft_error("Error\n");
 			if (av[i][j] == '-')
 			{
 				if (!(av[i][j + 1] >= '1' && av[i][j + 1] <= '9'))
-					ft_error("Error\nwrong input\n");
+					ft_error("Error\n");
 			}
 			++j;
 		}
@@ -92,11 +92,11 @@ void	check_num_q(char *av, t_base *base)
 	while (av[i])
 	{
 		if (is_digit(av[i]))
-			ft_error("wrong char");
+			ft_error("Error\n");
 		if (av[i] == '-')
 		{
 			if (!(av[i + 1] >= '0' && av[i + 1] <= '9'))
-				ft_error("wrong input");
+				ft_error("Error\n");
 		}
 		++i;
 	}
