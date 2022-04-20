@@ -1,5 +1,6 @@
 # push_swap
 42 project push_swap
+[![letumany's 42 push_swap Score](https://badge42.vercel.app/api/v2/cl1l8hert000609l6rjl6rx6o/project/2476007)](https://github.com/JaeSeoKim/badge42)
 This project comprises an interesting case study regarding sorting algorithms and its performances, being part of the core curriculum of all 42 schools worldwide. The task is simple: given a sequence of random numbers disposed in a stack data structure (stack A), sort them with the help of an empty auxiliary stack (stack B) and a set of specific stack operations. The operations allowed are described as follows, as written in our task:
 
 - **```sa```** : swap a - Swap the first 2 elements at the top of stack A. Do nothing if there is only one or no elements).
